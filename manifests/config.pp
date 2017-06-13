@@ -28,4 +28,10 @@ class jamfpro::config {
     group => $jamfpro::group,
   }
 
+  file { '/etc/init.d/jamf.tomcat8':
+    content => template('jamfpro/template/jamf.tomcat8.erb'),
+    mode    => '0755',	
+  }
+
+
 }
