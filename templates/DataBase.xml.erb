@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DataBase>
+	<DataBaseType>mysql</DataBaseType>
+	<DataBaseDriver>org.mariadb.jdbc.Driver</DataBaseDriver>
+	<ServerName><%= scope.lookupvar('jamfpro::dbserver') %></ServerName>
+	<ServerPort><%= scope.lookupvar('jamfpro::dbport') %></ServerPort>
+	<DataBaseName><%= scope.lookupvar('jamfpro::dbname') %></DataBaseName>
+	<DataBaseUser><%= scope.lookupvar('jamfpro::dbuser') %></DataBaseUser>
+	<DataBasePassword><%= scope.lookupvar('jamfpro::dbpassword') %></DataBasePassword>
+	<AcquireIncrement>5</AcquireIncrement>
+	<Partitions>1</Partitions>
+	<MinPoolSize><%= scope.lookupvar('jamfpro::minpoolsize') %></MinPoolSize>
+	<MaxPoolSize><%= scope.lookupvar('jamfpro::maxpoolsize') %></MaxPoolSize>
+	<MaxIdleTimeExcessConnectionsInMinutes>1</MaxIdleTimeExcessConnectionsInMinutes>
+	<MaxConnectionAgeInMinutes>5</MaxConnectionAgeInMinutes>
+	<IdleConnectionTestPeriodInMinutes>0</IdleConnectionTestPeriodInMinutes>
+	<NumHelperThreads>3</NumHelperThreads>
+	<InStatementBatchSize>1000</InStatementBatchSize>
+	<jdbcParameters>?characterEncoding=utf8&amp;useUnicode=true&amp;jdbcCompliantTruncation=false</jdbcParameters>
+</DataBase>
