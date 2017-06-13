@@ -1,5 +1,15 @@
 class jamfpro::install {
 
+require jamfpro
+
+  user { $jamfpro::user:
+    comment          => 'jamfpro daemon account',
+    shell            => '/bin/false',
+    home             => $jira::homedir,
+    password         => '*',
+    managehome       => true,
+  } ->
+
   file { '${jamfpro::tomcatdir}/webapps/ROOT.war':
     content => template('jamfpro/files/ROOT.war'),
     mode    => '0644',
