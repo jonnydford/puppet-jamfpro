@@ -8,28 +8,28 @@ class jamfpro::config {
   }
 
   file { '${jamfpro::tomcatdir}/conf/server.xml':
-    content => template('jamfpro/template/server.xml.erb'),
+    content => template('jamfpro/server.xml.erb'),
     mode    => '0644',
     owner => $jamfpro::user,
     group => $jamfpro::group,
   }
 
   file { '${jamfpro::tomcatdir}/webapps/ROOT/WEB-INF/xml/DataBase.xml':
-    content => template('jamfpro/template/DataBase.xml.erb'),
+    content => template('jamfpro/DataBase.xml.erb'),
     mode    => '0644',
     owner => $jamfpro::user,
     group => $jamfpro::group,
   }
   
   file { '${jamfpro::tomcatdir}/webapps/ROOT/WEB-INF/classes/log4j.properties':
-    content => template('jamfpro/template/log4j.properties.erb'),
+    content => template('jamfpro/log4j.properties.erb'),
     mode    => '0644',
     owner => $jamfpro::user,
     group => $jamfpro::group,
   }
 
   file { '/etc/init.d/jamf.tomcat8':
-    content => template('jamfpro/template/jamf.tomcat8.erb'),
+    content => template('jamfpro/jamf.tomcat8.erb'),
     mode    => '0755',	
   }
 
