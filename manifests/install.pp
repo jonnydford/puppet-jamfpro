@@ -17,8 +17,8 @@ require jamfpro
     group => $jamfpro::group,
   }
 
-exec {'unzip-rootwar':
+  exec { 'mkdir ROOT && /usr/bin/unzip ROOT.war -d ./ROOT':
     cwd 	=> '${tomcatdir}/webapps/'
-    command 	=> 'if [ -d "ROOT" ]; then mv ROOT ${jamfpro::version}upgrade.bak && mkdir ROOT && /usr/bin/unzip ROOT.war -d ./ROOT; else mkdir ROOT && /usr/bin/unzip ROOT.war -d ./ROOT; fi'
-     }
+    creates => '${tomcatdir}/webapps/ROOT',
+  }
 }
